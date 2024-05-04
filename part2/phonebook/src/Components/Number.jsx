@@ -1,13 +1,13 @@
-const Numbers = ({filter, people}) => {
+const Numbers = ({filter, people, del}) => {
     return (
         <div>
             {people
                 .filter((person)=> person.name.toLowerCase().startsWith(filter.toLowerCase()))
-                .map((person)=><Number name={person.name} key={person.name} number={person.number}/>)}
+                .map((person)=><Number key={person.name} person = {person} del = {del}/>)}
         </div>
     )
 }
 
-const Number = ({name, number}) => <p>{name}: {number}</p>
+const Number = ({person, del}) => <p>{person.name}: {person.number} <button onClick={() => del(person)}>Delete</button></p>
 
 export default Numbers
